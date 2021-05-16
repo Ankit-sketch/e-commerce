@@ -12,6 +12,6 @@ class JwtService{
         static verify(token, secret_key = SECRET_KEY){
         return Jwt.verify(token, secret_key)
         }
-
+        
 }
 export default JwtService

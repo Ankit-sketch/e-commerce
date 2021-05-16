@@ -10,6 +10,8 @@ import routes from './routes'
 
 import errorHandler from './middleware/errorHandler'
 
+import path from 'path'
+
 app.use(express.json())
 
 mongoose.connect(DB_URL, {
@@ -24,7 +26,8 @@ mongoose.connect(DB_URL, {
 .catch(error => {
     console.log(error)
 })
-
+global.apRoot = path.resolve(__dirname)
+app.use(express.urlencoded({extended:false}))
 app.use('/api', routes)
 
 app.use(errorHandler)

@@ -36,11 +36,11 @@ const registerController = {
               email,
               password : hashedPassword
         })
-        try {
-            const result = await user.save()
-        } catch (error) {
-            return next(error)
-        }
+            try {
+                const result = await user.save()
+            } catch (error) {
+                return next(error)
+            }
         res.json({user})
    }
 }
